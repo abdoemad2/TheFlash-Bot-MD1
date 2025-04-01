@@ -24,12 +24,9 @@ let rtotalreg = Object.values(global.db.data.users).filter(user => user.register
 let more = String.fromCharCode(8206)
 let readMore = more.repeat(850)   
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
-let str = `⎔⋅• ━ ╼╃ ⌬〔﷽〕⌬ ╄╾ ━ •⋅⎔
-> TheFlash-Bot-MD
-> 〔قـسـم الالــعــاب┊ ˼‏ 🕹˹ 〕↶
-*⎔⋅ ╼╃ ⊰ •﹝⚡﹞• ⊱ ╄╾ ⋅⎔*
-          *فلاش بــ🤖ــوت*
-*⎔⋅ ╼╃ ⊰ •﹝⚡﹞• ⊱ ╄╾ ⋅⎔*
+let str = `🏮بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيم🏮
+✯≼══━━﹂🔮﹁━━══≽✯
+-----} 『قسم الالعاب』 {-----
 > 🕹 .عمري
 > 🕹 .كت
 > 🕹 .ذكاء
@@ -64,10 +61,7 @@ let str = `⎔⋅• ━ ╼╃ ⌬〔﷽〕⌬ ╄╾ ━ •⋅⎔
 > 🕹 .زواج
 > 🕹 .تاج
 > 🕹 .حكمه
-*⎔⋅ ╼╃ ⊰ •﹝⚡﹞• ⊱ ╄╾ ⋅⎔*
-*~⌬ تــ✍️︎ــوقــيــع ↡~*🖋
-*TheFlash-Bot-MD*
-*⎔⋅ ╼╃ ⊰ •﹝⚡﹞• ⊱ ╄╾ ⋅⎔*`.trim()
+✯≼══━━﹂🔮﹁━━══≽✯`.trim()
    const _0x3c7cab = _0x5a1d;
 
         function _0x5a1d(_0x1b92fa, _0x42ca62) {

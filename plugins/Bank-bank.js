@@ -5,7 +5,7 @@ let handler = async (m, {conn, usedPrefix}) => {
     let username = conn.getName(who)
     if (!(who in global.db.data.users)) throw `✳️ المستخدم غير موجود في قاعدة بياناتي`
 
-    var wealth = '*مفلس😭*'
+    var wealth = '*شحات😭*'
     if (`${user.bank}` <= 3000) {
         wealth = '*فقير 😞*'
     } else if (`${user.bank}` <= 6000) {

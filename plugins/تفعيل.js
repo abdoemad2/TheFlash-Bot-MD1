@@ -5,9 +5,9 @@ const handler = async function(m, {conn, text, usedPrefix, command}) {
   const name2 = conn.getName(m.sender);
   const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => global.imagen1);
   if (user.registered === true) throw `مثل\nتفعيل زاك.17.`;
-  if (!Reg.test(text)) throw `*[❗مساعده❗] انت مش مسجل عليك التسجيل اولا*\n\n*—◉ مثل: ${usedPrefix + command} الاسم.العمر*\n*—◉ مثل: ${usedPrefix + command} فينوم.18*`;
+  if (!Reg.test(text)) throw `*[❗مساعده❗] انت مش مسجل عليك التسجيل اولا*\n\n*—◉ مثل: ${usedPrefix + command} الاسم.العمر*\n*—◉ مثل: ${usedPrefix + command} عبدو.17*`;
   let [_, name, splitter, age] = text.match(Reg);
-  if (!name) throw '*مثل .تفعيل ناروتو.18*';
+  if (!name) throw '*مثل .تفعيل عبدو.17*';
   if (!age) throw '*[❗𝐈𝐍𝐅𝐎❗] 𝙻𝙰 𝙴𝙳𝙰𝙳 𝙽𝙾 𝙿𝚄𝙴𝙳𝙴 𝙴𝚂𝚃𝙰𝚁 𝚅𝙰𝙲𝙸𝙰*';
   if (name.length >= 30) throw '[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝙽𝙾𝙼𝙱𝚁𝙴 𝙴𝚂 𝙳𝙴𝙼𝙰𝚂𝙸𝙰𝙳𝙾 𝙻𝙰𝚁𝙶𝙾';
   age = parseInt(age);
@@ -22,7 +22,7 @@ const handler = async function(m, {conn, text, usedPrefix, command}) {
 ┇「 معلوماتك 」
 ┣┅ ━━━━━━━━━━━━ ┅ ━
 ┃ *الاسم:* ${name}
-┃ *العمر:* ${age} سنع
+┃ *العمر:* ${age} سنه
 ┃ *الايدي:* 
 ┃ ${sn}
 ┣┅ ━━━━━━━━━━━━ ┅ ━

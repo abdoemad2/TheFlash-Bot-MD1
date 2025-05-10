@@ -1,41 +1,37 @@
-function clockString(ms) {
-    let h = Math.floor(ms / 3600000);
-    let m = Math.floor(ms % 3600000 / 60000);
-    let s = Math.floor(ms % 60000 / 1000);
-    return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
-}
+import fs from 'fs'
+import fetch from 'node-fetch'
+import { xpRange } from '../lib/levelling.js'
+const { levelling } = '../lib/levelling.js'
+import PhoneNumber from 'awesome-phonenumber'
+import { promises } from 'fs'
+import { join } from 'path'
 
-import pkg from '@whiskeysockets/baileys';
-const { generateWAMessageFromContent, proto, prepareWAMessageMedia } = pkg;
-
-const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems}) => {
-    let d = new Date(new Date + 3600000);
-    let locale = 'ar';
-    let week = d.toLocaleDateString(locale, { weekday: 'long' });
-    let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
-    let _uptime = process.uptime() * 1000;
-    let uptime = clockString(_uptime);
-    let user = global.db.data.users[m.sender];
-    let name = conn.getName(m.sender)
-    let { money, joincount } = global.db.data.users[m.sender];
-    let { exp, limit, level, role } = global.db.data.users[m.sender];
-    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length;
-    let more = String.fromCharCode(8206);
-    let readMore = more.repeat(850);
-    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-    let taguser = '@' + m.sender.split("@s.whatsapp.net")[0];
-  await conn.sendMessage(m.chat, { react: { text: '📂', key: m.key } })
-  const zack = 'https://files.catbox.moe/a23k6p.jpg'
-  const mentionId = m.key.participant || m.key.remoteJid;
- 
-conn.relayMessage(m.chat, { viewOnceMessage: { message: { interactiveMessage: { header: { title: `harley`}, body: { text: `˼⚡˹↜ مـࢪحـبـا بـك/ي @${mentionId.split('@')[0]}
-◞🏮بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيم🏮◜
+let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems }) => {
+    try {
+        let vn = './Menu.png'
+        let pp = imagen4
+        let img = await(await fetch('https://telegra.ph/.')).buffer()
+        let d = new Date(new Date + 3600000)
+        let locale = 'ar'
+        let week = d.toLocaleDateString(locale, { weekday: 'long' })
+        let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
+        let _uptime = process.uptime() * 1000
+        let uptime = clockString(_uptime)
+        let user = global.db.data.users[m.sender]
+        let { money, joincount } = global.db.data.users[m.sender]
+        let { exp, limit, level, role } = global.db.data.users[m.sender]
+        let { min, xp, max } = xpRange(level, global.multiplier)
+        let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length 
+        let more = String.fromCharCode(8206)
+        let readMore = more.repeat(850)   
+        let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
+        let str = `◞🏮بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيم🏮◜
 ✯≼══━━﹂🔮﹁━━══≽✯
 ◞{إِنَّمَا ٱلتَّوۡبَةُ عَلَى ٱللَّهِ لِلَّذِينَ يَعۡمَلُونَ ٱلسُّوٓءَ بِجَهَٰلَةٖ ثُمَّ يَتُوبُونَ مِن قَرِيبٖ فَأُوْلَٰٓئِكَ يَتُوبُ ٱللَّهُ عَلَيۡهِمۡۗ وَكَانَ ٱللَّهُ عَلِيمًا حَكِيمٗا}◜
-✯≼══━━﹂⛩️﹁━━══≽✯
+✯≼══━━﹂🔮﹁━━══≽✯
 🔮اهلا وسهلا يا《 ${taguser} 》
-🔮اسم البوت《 sung jinwoo 》
-🔮اسم المطور《 abdelrahman emad 》
+🔮اسم البوت《 Sung jinwoo 》
+🔮اسم المطور《  abdelrahman emad 》
 🔮عدد المستخدمين《 ${rtotalreg} 》
 🔮وقت التشغيل《 ${uptime} 》
 🔮التوقيت《 ${date} 》
@@ -50,105 +46,38 @@ conn.relayMessage(m.chat, { viewOnceMessage: { message: { interactiveMessage: { 
 ┃ 🧰 خبرة ${exp}*
 ┃ ⚓ الدور ${role}*
 ┛━━━━━━━━━━━━━┗
+[. ق1] قسم الأعضاء
+[. ق2] قسم الدين
+[. ق3] قسم المطور
+[. ق4] قسم التنزيل
+[. ق5] قسم الالعاب
+[. ق6] قسم التحويلات
+[. ق7] قسم الذكاء
+[. ق8] قسم الدعم
+[. ق9] قسم المشرفين
+[. ق10] قسم البحث
+✯≼══━━﹂🔮﹁━━══≽✯
 ◞🔮 مـلاحـظـة 🛑 ◈◜
 ◞🔮 يـجـب عـلـيـك كـتـابـة نـقـطـة قـبـل كـل أمـر مـثـل ⇠ 『 .اوامر 』◈◜
-✯≼══━━﹂🔮﹁━━══≽✯
-> © 𝐌𝐨𝐫𝐢 2025`,subtitle: "Araab Zack",},header: { hasMediaAttachment: true,...(await prepareWAMessageMedia({ image : { url: zack } }, { upload: conn.waUploadToServer }, {quoted: m}))},
-                    contextInfo: {
-                        mentionedJid: [m.sender],
-                        isForwarded: false,
-                    },nativeFlowMessage: { buttons: [
+✯≼══━━﹂🔮﹁━━══≽✯`.trim()
 
+        // إرسال الرسالة فقط بدون الأزرار
+        conn.sendMessage(m.chat, { image: pp, caption: str.trim(), mentions: [m.sender] })
 
-                            {
-                                name: 'single_select',
-                                buttonParamsJson: JSON.stringify({
-                                    title: '⌈🛡╎الــقــوائـــم╎🛡⌋',
-                                    sections: [
-                                        {
-                                            title: 'مــــــنوࢪ الاوامــــــࢪ يـــحـــب',
-                                            highlight_label: '𝐌𝐨𝐫𝐢',
-                                            rows: [
-                                                {
-                                                    header: 'الــقـ👑ـســم الـاول',
-                                                    title: 'استدعاء_قسم_الاعضاء #الاعضاء',
-                                                    description: '',
-                                                    id: '.ق1'
-                                                },
-                                                {
-                                                    header: 'الــقـ👨🏻‍💻ـســم الــثــانــي',
-                                                    title: 'استدعاء_قسم_المشرفين #المشرفين',
-                                                    description: '',
-                                                    id: '.ق10'
-                                                },
-                                                {
-                                                    header: 'الــقـ🕋ـســم الــثــالــث',
-                                                    title: 'استدعاء_قسم_الدين #الدين',
-                                                    description: '',
-                                                    id: '.ق2'
-                                                },
-                                                {
-                                                    header: 'الــقـ👑ـســم الــرابــع',
-                                                    title: 'استدعاء_قسم_المطور #المطور',
-                                                    description: '',
-                                                    id: '.ق3'
-                                                },
-                                                {
-                                                    header: 'الــقـ🛡ـســم الــخــامــس',
-                                                    title: 'استدعاء_قسم_التنزيلات #التنزيلات',
-                                                    description: '',
-                                                    id: '.ق4'
-                                                },
-                                                {
-                                                    header: 'الــقـ🕹ـســم الــســادس',
-                                                    title: 'استدعاء_قسم_الالعاب #الالعاب',
-                                                    description: '',
-                                                    id: '.ق5'
-                                                },
-                                                {
-                                                    header: 'الــقـ🌀ـســم الــســابــع',
-                                                    title: 'استدعاء_قسم_التحويلات #التحويلات',
-                                                    description: '',
-                                                    id: '.ق6'
-                                                },
-                                                {
-                                                    header: 'الــقـ🤖ـســم الــتــاســع',
-                                                    title: 'استدعاء_قسم_الذكاء #الذكاء',
-                                                    description: '',
-                                                    id: '.ق7'
-                                                },
-                                                {
-                                                    header: 'الــقـ🚨ـســم الــعــاشــر',
-                                                    title: 'استدعاء_قسم_الدعم #الدعم',
-                                                    description: '',
-                                                    id: '.ق8'
-                                                },
-                                                {
-                                                    header: 'الــقـ🔍ـســم �لــحــاديــة عــشــر',
-                                                    title: 'استدعاء_قسم_ابحث #البحث',
-                                                    description: '',
-                                                    id: '.ق11'
-                                               }
-                                            ]
-                                        }
-                                    ]
-                                }),
-                  messageParamsJson: ''
-                     },
-                     {
-               name: "cta_url",
-               buttonParamsJson: '{"display_text":"⌈📲╎جروب الــبــوت╎📲⌋","url":"https://chat.whatsapp.com/C5WGOfZC6DvJ7Ma3QhJd0K","merchant_url":"https://chat.whatsapp.com/C5WGOfZC6DvJ7Ma3QhJd0K"}'
-                            }
-                        ]
-                    }
-                }
-            }
-        }
-    }, {});
+    } catch {
+        conn.reply(m.chat, '[❗INFO❗] تحتوي القائمة على خطأ ولا يمكن إرسالها، يرجى الإبلاغ عنها إلى مالك الروبوت', m)
+    }
 }
 
-handler.help = ['info'];
-handler.tags = ['main'];
-handler.command = ['menu', 'مهام', 'اوامر','الاوامر','قائمة','القائمة']
+handler.command = /^(اوامر|menu|ألاوامر|أوامر|الاوامر|القائمه|القائمة)$/i
+handler.exp = 50
+handler.fail = null
 
-export default handler;
+export default handler
+
+function clockString(ms) {
+    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+}
